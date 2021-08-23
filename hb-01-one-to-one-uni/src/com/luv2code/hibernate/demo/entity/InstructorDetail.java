@@ -24,6 +24,7 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 	
+	
 	// create the constructor
 	public InstructorDetail() {
 		
