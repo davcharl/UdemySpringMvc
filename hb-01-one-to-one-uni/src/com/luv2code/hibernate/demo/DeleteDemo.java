@@ -8,7 +8,7 @@ import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 import com.luv2code.hibernate.demo.entity.Student;
 
-public class CreateDemo {
+public class DeleteDemo {
 
 	public static void main(String[] args) {
 		
@@ -23,26 +23,23 @@ public class CreateDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {
-			// create the object
-			Instructor tempInstructor =
-					new Instructor("Alicia","Silverstone","alicia@mail.com");
 			
-			InstructorDetail tempInstructorDetail = 
-					new InstructorDetail(
-							"http://www.youtube.com/alicia",
-							"acting");
-			
-			// associate the object
-			tempInstructor.setInstructorDetail(tempInstructorDetail);
 			
 			// start a transaction
 			session.beginTransaction();
 			
-			// save the instructor
-			// NOTE: THis will also save the details object
-			// because of CascaddeType.ALL
-			System.out.println("Saving Instructor " + tempInstructor.toString());
-			session.save(tempInstructor);
+			// get an instructor by primary key
+			int theId = 1;
+			Instructor tempinstructor = session.get(Instructor.class, theId);
+			// check result for null
+			if(tempinstructor != null) {
+				// delete instructor
+				// This will also delete the associated InstructorDetail record
+				System.out.println("Deleting instructor");
+				session.delete(tempinstructor);
+			} else {
+				System.out.println("Instructor not found for deletion!");
+			}
 			
 			// commit the instructor
 			session.getTransaction().commit();
