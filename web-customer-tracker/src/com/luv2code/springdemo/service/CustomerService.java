@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.dao;
+package com.luv2code.springdemo.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 
 import com.luv2code.springdemo.entity.Customer;
 
-public interface CustomerDao {
-	
+public interface CustomerService {
+
 	public List<Customer> getCustomers();
 
 	public void saveCustomer(Customer customer);
@@ -16,8 +16,8 @@ public interface CustomerDao {
 	
 	public void deleteCustomer(int theId);
 
-	public List<Customer> searchCustomer(String theSearchName);
+	public List<Customer> searchCustomers(String theSearchName);
 
 	public List<Customer> getCustomers(int theSortField);
-
+	
 }
