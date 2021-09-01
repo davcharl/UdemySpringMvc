@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Configure logging level for Logger and Console display -->
+	<!-- 
+	<bean id="myLoggerConfig"
+	 		class="ie.revenue.springdemo.MyLoggerConfig" init-method="initLogger">
+	 		<property name="rootLoggerLevel" value="FINE" />
+	 		<property name="printedLoggerLevel" value="FINE" />	
+	</bean>
+	 -->
+	 
+	 <!-- COnfigure custom bean to track multiple bean instances (i.e. Prototype scope) and destroy when app is closed -->
+	 <!-- 
+	 <bean id="customerProcessor"
+    		class="ie.revenue.springdemo.MyCustomBeanProcessor">
+     </bean>
+	  -->
+	
+	
+    <!-- Define your beans here -->
+    
+    <!-- Add entry to enable component scanning -->
+    <context:component-scan base-package="ie.revenue.springdemo" />
+    
+    <!-- Load the properties from a properties file -->
+    <context:property-placeholder location="classpath:sport.properties" />
+	<!-- Currently I don't know how to get appContext to handle multiple files
+		<context:property-placeholder location="classpath:sport.properties" />
+	 -->
+
+</beans>
+
+
+
+
+
